@@ -22,29 +22,36 @@ namespace UTIL {
 
 class commander {
 public:
-    commander(const std::vector<std::string>& inputs) {
+    explicit commander(const std::vector<std::string>& inputs) {
         arguments = inputs;
     }
     commander(int argc, char** argv) {
         for (int i = 0; i < argc; i++)
             arguments.push_back(std::string (argv[i]));
     }
-    bool isFlagSet (std::string flagName) {
+    commander(int argc, const char** argv) {
+        for (int i = 0; i < argc; i++)
+            arguments.push_back(std::string (argv[i]));
+    }
+    bool isFlagSet (std::string flagName) const {
         return (std::find (arguments.begin(), arguments.end(), flagName) != arguments.end());
     }
-    std::string getFlagValue (std::string flagName) {
-        return (std::find (arguments.begin(), arguments.end(), flagName) + 1);
+    std::string getFlagValue (std::string flagName) const {
+        return *(std::find (arguments.begin(), arguments.end(), flagName) + 1);
     }
-    std::string getEverythingBeginningFrom (std::string flagName) {
-        auto i = std::find (arguments.begin(), arguments.end(), flagName);
+    std::string getEverythingBeginningFrom (std::string flagName) const {
         std::string temp;
-        for (auto j = i; i != arguments.end(); i++)
-            temp += *j + " ";
+        for (auto i = std::find (arguments.begin(), arguments.end(), flagName) + 1; i != arguments.end(); i++)
+            temp += (*i) + " ";
+        return temp;
     }
-    typename std::vector<std::string>::iterator begin() {
+    std::string operator[] (int index) const {
+        return arguments[index];
+    }
+    typename std::vector<std::string>::const_iterator begin() const {
         return arguments.begin();
     }
-    typename std::vector<std::string>::iterator end() {
+    typename std::vector<std::string>::const_iterator end() const {
         return arguments.end();
     }
 private:
