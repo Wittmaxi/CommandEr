@@ -6,20 +6,6 @@
 #include <algorithm>
 
 namespace CMD {
-namespace UTIL {
-    std::string removeUntil (std::string toProcess, char until) {
-        auto it = std::find(toProcess.begin(), toProcess.end(), until);
-        if (it == toProcess.end()) 
-            return "";
-        return std::string (++it, toProcess.end());
-    }
-
-    std::string getUntil (std::string toProcess, char until) {
-        auto it = std::find(toProcess.begin(), toProcess.end(), until);
-        return std::string (toProcess.begin(), it);
-    }
-}
-
 class commander {
 public:
     explicit commander(const std::vector<std::string>& inputs) {
