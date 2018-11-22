@@ -19,13 +19,13 @@ public:
         for (int i = 0; i < argc; i++)
             arguments.push_back(std::string (argv[i]));
     }
-    bool isFlagSet (std::string flagName) const {
+    bool isFlagSet (const std::string& flagName) const {
         return (std::find (arguments.begin(), arguments.end(), flagName) != arguments.end());
     }
-    std::string getFlagValue (std::string flagName) const {
+    std::string getFlagValue (const std::string& flagName) const {
         return *(std::find (arguments.begin(), arguments.end(), flagName) + 1);
     }
-    std::string getEverythingBeginningFrom (std::string flagName) const {
+    std::string getEverythingBeginningFrom (const std::string& flagName) const {
         std::string temp;
         for (auto i = std::find (arguments.begin(), arguments.end(), flagName) + 1; i != arguments.end(); i++)
             temp += (*i) + " ";

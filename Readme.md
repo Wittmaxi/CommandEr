@@ -26,13 +26,13 @@ Simply retrieve argc and argv from the main function and feed them into `command
 ### Flags 
 Flags are any token separated by two spaces. 
 
-#### `bool isFlagSet (std::string)`
+#### `bool isFlagSet (const std::string& flagName)`
 Returns wether the flag exists
 
-#### `std::string getFlagValue (std::string flagName)`
+#### `std::string getFlagValue (const std::string& flagName)`
 Returns the flag exactly after the specified flag. Used for example with `-file filename.txt`.
 
-#### `std::string getEverythingBeginningFrom (std::string flagName)`
+#### `std::string getEverythingBeginningFrom (const std::string& flagName)`
 Returns a string with all the flags beginning with the flag after flagName.
 
 #### `auto begin()`
@@ -43,3 +43,6 @@ Returns an iterator after the last argv
 
 #### `std::string operator []` 
 Allows for access to a single argument
+
+## Thank you ...
+... to andrew b. for giving me the idea + motivation for this small project!
