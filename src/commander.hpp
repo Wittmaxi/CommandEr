@@ -25,9 +25,15 @@ public:
     std::string getFlagValue (const std::string& flagName) const {
         return *(std::find (arguments.begin(), arguments.end(), flagName) + 1);
     }
-    std::string getEverythingBeginningFrom (const std::string& flagName) const {
+    std::string getEverythingFrom (const std::string& flagName) const {
         std::string temp;
         for (auto i = std::find (arguments.begin(), arguments.end(), flagName) + 1; i != arguments.end(); i++)
+            temp += (*i) + " ";
+        return temp;
+    }
+    std::string getEverythingFromTo (const std::string& flagName, const std::string& flagName2) const {
+        std::string temp;
+        for (auto i = std::find (arguments.begin(), arguments.end(), flagName) + 1; i != std::find (arguments.begin(), arguments.end(), flagName2); i++)
             temp += (*i) + " ";
         return temp;
     }
