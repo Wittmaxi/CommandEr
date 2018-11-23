@@ -39,6 +39,9 @@ Returns a string with all the flags beginning with the flag after flagName.
 #### `std::string getEverythingFromTo (const std::string& flagName, const std::string& flagName2)`
 Returns a string with all the flags beginning with the flag after flagName and ending with the flag "flagName2".
 
+#### `int getFlagPosition (const std::string& flagName)`
+Returns the position of the flag starting at 0.
+
 #### `auto begin()`
 Returns an iterator to the first argv
 
