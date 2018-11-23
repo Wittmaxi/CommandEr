@@ -43,6 +43,3 @@ Returns an iterator after the last argv
 
 #### `std::string operator []` 
 Allows for access to a single argument
-
-## Thank you ...
-... to andrew b. for giving me the idea + motivation for this small project!
