@@ -14,7 +14,9 @@ int main () {
     assert (a.getFlagValue("-sprinkleChocolate") == "brown");
     assert (a.getEverythingFrom("-allowMistakes") == "-sprinkleChocolate brown ");
     assert (a.getEverythingFromTo("-shakeBananas", "-sprinkleChocolate") == "-allowMistakes ");
+    assert (a.getFlagPosition("-allowMistakes") == 2);
+    assert (a[2] == "-allowMistakes");
     for (auto i : a) {
-        
+        std::cout << i << "\n";
     }
 }

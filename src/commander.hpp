@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <iterator>
 
 namespace CMD {
 class commander {
@@ -37,7 +38,10 @@ public:
             temp += (*i) + " ";
         return temp;
     }
-    std::string operator[] (int index) const {
+    int getFlagPosition (const std::string& flagName) const {
+        return std::distance (arguments.begin(), std::find (arguments.begin(), arguments.end(), flagName));
+    }
+    std::string operator[] (const int index) const {
         return arguments[index];
     }
     typename std::vector<std::string>::const_iterator begin() const {
