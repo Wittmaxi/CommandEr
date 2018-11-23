@@ -32,8 +32,12 @@ Returns wether the flag exists
 #### `std::string getFlagValue (const std::string& flagName)`
 Returns the flag exactly after the specified flag. Used for example with `-file filename.txt`.
 
-#### `std::string getEverythingBeginningFrom (const std::string& flagName)`
+#### `std::string getEverythingFrom (const std::string& flagName)`
 Returns a string with all the flags beginning with the flag after flagName.
+
+
+#### `std::string getEverythingFromTo (const std::string& flagName, const std::string& flagName2)`
+Returns a string with all the flags beginning with the flag after flagName and ending with the flag "flagName2".
 
 #### `auto begin()`
 Returns an iterator to the first argv
