@@ -50,3 +50,9 @@ Returns an iterator after the last argv
 
 `std::string operator []` 
 Allows for access to a single argument
+
+`std::vector<std::string> getAllFlagsLike (const std::regex&)`
+Returns a vector of every flag that matches the given regex.
+
+`std::vector<std::string> getAllFlagsUnlike (const std::regex&)`
+Returns a vector of every flag that doesn't matches the given regex.

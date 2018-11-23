@@ -5,6 +5,7 @@
 #include <string>
 #include <algorithm>
 #include <iterator>
+#include <regex>
 
 namespace CMD {
 class commander {
@@ -40,6 +41,20 @@ public:
     }
     int getFlagPosition (const std::string& flagName) const {
         return std::distance (arguments.begin(), std::find (arguments.begin(), arguments.end(), flagName));
+    }
+    std::vector<std::string> getAllFlagsLike (const std::regex& pattern) const {
+        std::vector<std::string> temp;
+        for (const auto &i : arguments) 
+            if (std::regex_match(i, pattern))
+                temp.push_back(i);
+        return temp;
+    }
+    std::vector<std::string> getAllFlagsUnlike (const std::regex& pattern) const {
+        std::vector<std::string> temp;
+        for (const auto &i : arguments) 
+            if (!std::regex_match(i, pattern))
+                temp.push_back(i);
+        return temp;
     }
     std::string operator[] (const int index) const {
         return arguments[index];
