@@ -24,29 +24,29 @@ commander(int argc, const char** argv);
 Simply retrieve argc and argv from the main function and feed them into `commander::commander`
 
 ### Flags 
-Flags are any token separated by two spaces. 
+Flags are any token separated by two spaces. Call the following functions on your instance of commander:
 
-#### `bool isFlagSet (const std::string& flagName)`
+`bool isFlagSet (const std::string& flagName)`
 Returns wether the flag exists
 
-#### `std::string getFlagValue (const std::string& flagName)`
+`std::string getFlagValue (const std::string& flagName)`
 Returns the flag exactly after the specified flag. Used for example with `-file filename.txt`.
 
-#### `std::string getEverythingFrom (const std::string& flagName)`
+`std::string getEverythingFrom (const std::string& flagName)`
 Returns a string with all the flags beginning with the flag after flagName.
 
 
-#### `std::string getEverythingFromTo (const std::string& flagName, const std::string& flagName2)`
+`std::string getEverythingFromTo (const std::string& flagName, const std::string& flagName2)`
 Returns a string with all the flags beginning with the flag after flagName and ending with the flag "flagName2".
 
-#### `int getFlagPosition (const std::string& flagName)`
+`int getFlagPosition (const std::string& flagName)`
 Returns the position of the flag starting at 0.
 
-#### `auto begin()`
+`auto begin()`
 Returns an iterator to the first argv
 
-#### `auto end()`
+`auto end()`
 Returns an iterator after the last argv
 
-#### `std::string operator []` 
+`std::string operator []` 
 Allows for access to a single argument
