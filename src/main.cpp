@@ -12,7 +12,8 @@ int main () {
     assert (a.isFlagSet("-allowMistakes") == true);
     assert (a.isFlagSet("-stirIngredients") == false);
     assert (a.getFlagValue("-sprinkleChocolate") == "brown");
-    assert (a.getEverythingBeginningFrom("-allowMistakes") == "-sprinkleChocolate brown ");
+    assert (a.getEverythingFrom("-allowMistakes") == "-sprinkleChocolate brown ");
+    assert (a.getEverythingFromTo("-shakeBananas", "-sprinkleChocolate") == "-allowMistakes ");
     for (auto i : a) {
         
     }
