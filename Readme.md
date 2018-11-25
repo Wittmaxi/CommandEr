@@ -14,6 +14,7 @@ Simply include commander.hpp like this:
 ```c++
 #include <commander.hpp>
 ``` 
+When compiling, add the `-lCMD` flag!
 
 ## Future
 The library will be kept backwards compatible. 
