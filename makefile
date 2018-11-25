@@ -5,7 +5,7 @@ compile:
 
 install: compile
 	sudo cp ./build/libCMD.a /usr/local/lib/libCMD.a
-	sudo cp ./src/commander.hpp /usr/local/include/commander.h
+	sudo cp ./src/commander.hpp /usr/local/include/commander.hpp
 
 uninstall:
 	sudo rm -r /usr/local/include/commander.h
