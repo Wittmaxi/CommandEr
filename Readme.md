@@ -24,7 +24,16 @@ commander(int argc, const char** argv);
 Simply retrieve argc and argv from the main function and feed them into `commander::commander`
 
 ### Flags 
-Flags are any token separated by two spaces. Call the following functions on your instance of commander:
+Flags are any tokens separated from others by a space. Eg:
+```console
+myCoolApp hello World 
+
+Tokens:
+myCoolApp
+hello
+world
+```
+Call the following functions on your instance of commander:
 
 `bool isFlagSet (const std::string& flagName)`
 Returns wether the flag exists
