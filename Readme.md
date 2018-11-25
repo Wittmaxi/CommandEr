@@ -1,8 +1,19 @@
 # Commander
 Simple tool that helps parse Command Line Arguments
 
+## Installation
+Copy this repository and call `make install` in it.
+```console
+git clone https://github.com/Wittmaxi/CommandEr
+cd CommandEr
+make install
+```
+
 ## Inclusion
-Simply include commander.hpp in your C++ project. 
+Simply include commander.hpp like this:
+```c++
+#include <commander.hpp>
+``` 
 
 ## Future
 The library will be kept backwards compatible. 
