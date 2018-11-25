@@ -24,7 +24,8 @@ commander(int argc, const char** argv);
 Simply retrieve argc and argv from the main function and feed them into `commander::commander`
 
 ### Flags 
-Flags are any tokens separated from others by a space. Eg:
+Flags are any tokens separated from others by a space. In a usual context, you may call them "command line arguments"
+Eg:
 ```console
 myCoolApp hello World 
 
