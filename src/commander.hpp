@@ -13,6 +13,7 @@ public:
     explicit commander(const std::vector<std::string>& inputs);
     commander(int argc, char** argv);
     commander(int argc, const char** argv);
+    size_t getFlagCount () const;
     bool isFlagSet (const std::string& flagName) const;
     std::string getFlagValue (const std::string& flagName) const;
     std::string getEverythingFrom (const std::string& flagName) const;

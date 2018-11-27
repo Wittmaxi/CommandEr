@@ -16,6 +16,10 @@ commander::commander(int argc, const char **argv)
     for (int i = 0; i < argc; i++)
         arguments.push_back(std::string(argv[i]));
 }
+size_t commander::getFlagCount() const 
+{
+    return arguments.size();
+}
 bool commander::isFlagSet(const std::string &flagName) const
 {
     return (std::find(arguments.begin(), arguments.end(), flagName) != arguments.end());
