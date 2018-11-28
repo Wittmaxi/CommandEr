@@ -26,7 +26,10 @@ bool commander::isFlagSet(const std::string &flagName) const
 }
 std::string commander::getFlagValue(const std::string &flagName) const
 {
-    return *(std::find(arguments.begin(), arguments.end(), flagName) + 1);
+    auto temp = std::find(arguments.begin(), arguments.end(), flagName);
+    if (temp == arguments.end())
+        return "";
+    return *(temp + 1);
 }
 std::string commander::getEverythingFrom(const std::string &flagName) const
 {
