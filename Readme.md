@@ -78,3 +78,6 @@ Returns a vector of every flag that matches the given regex.
 
 `std::vector<std::string> getAllFlagsUnlike (const std::regex&)`
 Returns a vector of every flag that doesn't matches the given regex.
+
+`std::vector<std::string> getAllFlagsAfter (const std::string&)`
+Returns all the flags after the given flag.
