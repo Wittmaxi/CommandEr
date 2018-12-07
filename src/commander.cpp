@@ -16,7 +16,7 @@ commander::commander(int argc, const char **argv)
     for (int i = 0; i < argc; i++)
         arguments.push_back(std::string(argv[i]));
 }
-size_t commander::getFlagCount() const 
+size_t commander::getFlagCount() const
 {
     return arguments.size();
 }
@@ -48,6 +48,10 @@ std::string commander::getEverythingFromTo(const std::string &flagName, const st
 int commander::getFlagPosition(const std::string &flagName) const
 {
     return std::distance(arguments.begin(), std::find(arguments.begin(), arguments.end(), flagName));
+}
+std::vector<std::string> commander::getAllFlagsAfter(const std::string &flag) const
+{
+    return std::vector<std::string> (std::find (arguments.begin(), arguments.end(), flag), arguments.end());
 }
 std::vector<std::string> commander::getAllFlagsLike(const std::regex &pattern) const
 {

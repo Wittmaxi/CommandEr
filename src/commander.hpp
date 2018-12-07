@@ -19,6 +19,7 @@ public:
     std::string getEverythingFrom (const std::string& flagName) const;
     std::string getEverythingFromTo (const std::string& flagName, const std::string& flagName2) const;
     int getFlagPosition (const std::string& flagName) const;
+    std::vector<std::string> getAllFlagsAfter (const std::string& flag) const;
     std::vector<std::string> getAllFlagsLike (const std::regex& pattern) const;
     std::vector<std::string> getAllFlagsUnlike (const std::regex& pattern) const;
     std::string operator[] (const int index) const;
