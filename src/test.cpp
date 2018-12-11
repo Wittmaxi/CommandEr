@@ -3,10 +3,17 @@
 
 void assert (bool worked) {
     if (!worked)
-        std::cout << "didn't work well \n";
+        std::cout << "!! didn't work well !!\n";
 }
 
-int main () {
+void testSerializers() {
+    assert(CMD::serializer<std::string>::convert ("hi") == "hi");
+    assert(CMD::serializer<int>::convert ("1123") == 1123);
+    assert(CMD::serializer<double>::convert ("123.123") == 123.123);
+    assert(CMD::serializer<float>::convert ("123.1") == 123.1f);
+}
+
+void testCommander () {
     std::vector <const char*> args {"smoothiemaker", "-shakeBananas", "-allowMistakes", "-sprinkleChocolate", "brown"};
     CMD::commander a(5, args.data());
     assert (a.isFlagSet("-allowMistakes") == true);
@@ -30,4 +37,9 @@ int main () {
         std::cout << i << " ";
     }
     std::cout << "\n";
+}
+
+int main () {
+    testCommander();
+    testSerializers();
 }

@@ -1,8 +1,36 @@
 #include "commander.hpp"
-#include <exception>
 
 namespace CMD
 {
+std::string serializer<std::string>::convert(const std::string &other)
+{
+    return other;
+}
+
+int serializer<int>::convert(const std::string &other)
+{
+    std::stringstream stream(other);
+    int temp;
+    stream >> temp;
+    return temp;
+}
+
+double serializer<double>::convert(const std::string &other)
+{
+    std::stringstream stream(other);
+    double temp;
+    stream >> temp;
+    return temp;
+}
+
+float serializer<float>::convert(const std::string &other)
+{
+    std::stringstream stream(other);
+    float temp;
+    stream >> temp;
+    return temp;
+}
+
 commander::commander(const std::vector<std::string> &inputs)
 {
     arguments = inputs;
@@ -52,7 +80,7 @@ int commander::getFlagPosition(const std::string &flagName) const
 }
 std::vector<std::string> commander::getAllFlagsAfter(const std::string &flag) const
 {
-    return std::vector<std::string> (std::find (arguments.begin(), arguments.end(), flag), arguments.end());
+    return std::vector<std::string>(std::find(arguments.begin(), arguments.end(), flag), arguments.end());
 }
 std::vector<std::string> commander::getAllFlagsLike(const std::regex &pattern) const
 {
@@ -74,7 +102,7 @@ std::string commander::operator[](const int index) const
 {
     return arguments[index];
 }
-std::string commander::at (const int index) const
+std::string commander::at(const int index) const
 {
     if (index < arguments.size())
         return arguments[index];
