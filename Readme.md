@@ -16,9 +16,6 @@ Simply include commander.hpp like this:
 ``` 
 When compiling, add the `-lCMD` flag!
 
-## Future
-The library will be kept backwards compatible. 
-
 ## Requirements
 The library requires atleast C++11
 
