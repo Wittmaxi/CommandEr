@@ -1,4 +1,5 @@
 #include "commander.hpp"
+#include <exception>
 
 namespace CMD
 {
@@ -72,6 +73,12 @@ std::vector<std::string> commander::getAllFlagsUnlike(const std::regex &pattern)
 std::string commander::operator[](const int index) const
 {
     return arguments[index];
+}
+std::string commander::at (const int index) const
+{
+    if (index < arguments.size())
+        return arguments[index];
+    throw std::out_of_range("Amount of arguments for commander::at too high");
 }
 typename std::vector<std::string>::const_iterator commander::begin() const
 {

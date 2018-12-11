@@ -16,6 +16,14 @@ int main () {
     assert (a.getEverythingFromTo("-shakeBananas", "-sprinkleChocolate") == "-allowMistakes ");
     assert (a.getFlagPosition("-allowMistakes") == 2);
     assert (a[2] == "-allowMistakes");
+    assert (a.at(2) == "-allowMistakes");
+    bool threw = false;
+    try {
+        a.at(100);
+    } catch (const std::exception& ex) {
+        threw = true;
+    }
+    assert (threw);
     assert (a.getAllFlagsLike(std::regex ("-\\w*")) == std::vector<std::string> {"-shakeBananas", "-allowMistakes", "-sprinkleChocolate"});
     assert (a.getAllFlagsUnlike(std::regex ("-\\w*")) == std::vector<std::string> {"smoothiemaker", "brown"});
     for (auto i : a) {

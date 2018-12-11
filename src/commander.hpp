@@ -23,9 +23,10 @@ public:
     std::vector<std::string> getAllFlagsLike (const std::regex& pattern) const;
     std::vector<std::string> getAllFlagsUnlike (const std::regex& pattern) const;
     std::string operator[] (const int index) const;
+    std::string at (const int index) const;
     typename std::vector<std::string>::const_iterator begin() const;
     typename std::vector<std::string>::const_iterator end() const;
-private:
+ private:
     std::vector<std::string> arguments;
 };
 }

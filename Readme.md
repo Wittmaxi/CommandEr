@@ -70,8 +70,11 @@ Returns an iterator to the first argv
 `auto end()`
 Returns an iterator after the last argv
 
-`std::string operator []` 
+`std::string operator [] (const int index)` 
 Allows for access to a single argument
+
+`std::string at (const int index)` 
+Allows for access to a single argument, with bounds check. Throws an std::out_of_range.
 
 `std::vector<std::string> getAllFlagsLike (const std::regex&)`
 Returns a vector of every flag that matches the given regex.
