@@ -45,39 +45,84 @@ world
 ```
 Call the following functions on your instance of commander:
 
-`bool isFlagSet (const std::string& flagName)`
+```c++
+bool isFlagSet (const std::string& flagName)
+```
 Returns wether the flag exists
 
-`std::string getFlagValue (const std::string& flagName)`
+```c++
+template<class T = std::string>
+T getFlagValue (const std::string& flagName)
+```
 Returns the flag exactly after the specified flag. Used for example with `-file filename.txt`.
 
-`std::string getEverythingFrom (const std::string& flagName)`
+```c++
+template<class T = std::string>
+std::vector<T> getEverythingFrom (const std::string& flagName)
+```
 Returns a string with all the flags beginning with the flag after flagName.
 
-
-`std::string getEverythingFromTo (const std::string& flagName, const std::string& flagName2)`
+```c++
+template<class T = std::string>
+std::vector<T> getEverythingFromTo (const std::string& flagName, const std::string& flagName2)
+```
 Returns a string with all the flags beginning with the flag after flagName and ending with the flag "flagName2".
 
-`int getFlagPosition (const std::string& flagName)`
+```c++
+int getFlagPosition (const std::string& flagName)
+```
 Returns the position of the flag starting at 0.
 
-`auto begin()`
+```c++
+auto begin()
+```
 Returns an iterator to the first argv
 
-`auto end()`
+```c++
+auto end()
+```
 Returns an iterator after the last argv
 
-`std::string operator [] (const int index)` 
+```c++
+template<class T = std::string>
+T operator [] (const int index)
+```
 Allows for access to a single argument
 
-`std::string at (const int index)` 
+```c++
+template<class T = std::string>
+T at (const int index)
+```
 Allows for access to a single argument, with bounds check. Throws an std::out_of_range.
 
-`std::vector<std::string> getAllFlagsLike (const std::regex&)`
+```c++
+template<class T = std::string>
+std::vector<T> getAllFlagsLike (const std::regex&)
+```
 Returns a vector of every flag that matches the given regex.
 
-`std::vector<std::string> getAllFlagsUnlike (const std::regex&)`
+```c++
+template<class T = std::string>
+std::vector<T> getAllFlagsUnlike (const std::regex&)
+```
 Returns a vector of every flag that doesn't matches the given regex.
 
-`std::vector<std::string> getAllFlagsAfter (const std::string&)`
+```c++
+template<class T = std::string>
+std::vector<T> getAllFlagsAfter (const std::string&)
+```
 Returns all the flags after the given flag.
+
+### Types
+The templated members of commander allow for typecasted retrieval of the flags. 
+A flag `"1"` could thus be converted to an integer type. 
+For conversions to types that are not yet supported, 
+```
+template<class T>
+CMD::serializer {
+
+};
+```
+has to be specialized for the required task. 
+It needs to contain the function
+```static Type convert (const std::string& other);```
