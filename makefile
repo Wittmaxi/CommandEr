@@ -12,6 +12,6 @@ uninstall:
 	sudo rm /usr/local/lib/libCMD.a
 
 test:
-	g++ ./src/test.cpp -lCMD -o ./test
+	g++ ./src/test.cpp -lCMD -g -o ./test
 	./test
 	rm ./test

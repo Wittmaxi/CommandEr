@@ -14,13 +14,13 @@ void testSerializers() {
 }
 
 void testCommander () {
-    std::vector <const char*> args {"smoothiemaker", "-shakeBananas", "-allowMistakes", "-sprinkleChocolate", "brown"};
-    CMD::commander a(5, args.data());
+    std::vector <const char*> args {"smoothiemaker", "-shakeBananas", "-allowMistakes", "-sprinkleChocolate", "brown", "-effort", "10"};
+    CMD::commander a(7, args.data());
     assert (a.isFlagSet("-allowMistakes") == true);
     assert (a.isFlagSet("-stirIngredients") == false);
     assert (a.getFlagValue("-sprinkleChocolate") == "brown");
-    assert (a.getEverythingFrom("-allowMistakes") == "-sprinkleChocolate brown ");
-    assert (a.getEverythingFromTo("-shakeBananas", "-sprinkleChocolate") == "-allowMistakes ");
+    assert (a.getEverythingFrom("-allowMistakes") == std::vector<std::string> {"-sprinkleChocolate", "brown", "-effort", "10"});
+    assert (a.getEverythingFromTo("-shakeBananas", "-sprinkleChocolate") == std::vector<std::string>{"-allowMistakes"});
     assert (a.getFlagPosition("-allowMistakes") == 2);
     assert (a[2] == "-allowMistakes");
     assert (a.at(2) == "-allowMistakes");
@@ -31,8 +31,9 @@ void testCommander () {
         threw = true;
     }
     assert (threw);
-    assert (a.getAllFlagsLike(std::regex ("-\\w*")) == std::vector<std::string> {"-shakeBananas", "-allowMistakes", "-sprinkleChocolate"});
-    assert (a.getAllFlagsUnlike(std::regex ("-\\w*")) == std::vector<std::string> {"smoothiemaker", "brown"});
+    assert (a.getAllFlagsLike(std::regex ("-\\w*")) == std::vector<std::string> {"-shakeBananas", "-allowMistakes", "-sprinkleChocolate", "-effort"});
+    assert (a.getAllFlagsUnlike(std::regex ("-\\w*")) == std::vector<std::string> {"smoothiemaker", "brown", "10"});
+    assert (a.getFlagValue<int> ("-effort") == 10);
     for (auto i : a) {
         std::cout << i << " ";
     }
