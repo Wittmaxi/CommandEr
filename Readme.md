@@ -22,7 +22,7 @@ The library requires atleast C++11
 ## Usage
 ### Namespace
 The entire library is wrapped in the namespace CMD.
-It contains one single class, namely `commander`
+It contains one single class meant to be used, namely `commander`
 
 ### Constructor
 ```C++
