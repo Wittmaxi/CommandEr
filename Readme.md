@@ -54,7 +54,7 @@ Returns wether the flag exists
 template<class T = std::string>
 T getFlagValue (const std::string& flagName)
 ```
-Returns the flag exactly after the specified flag. Used for example with `-file filename.txt`.
+Returns the flag exactly after the specified flag. Used for example with `-file filename.txt` by calling `myCommandEr.getFlagValue("-file")`.
 
 ```c++
 template<class T = std::string>
