@@ -48,7 +48,7 @@ Call the following functions on your instance of commander:
 ```c++
 bool isFlagSet (const std::string& flagName)
 ```
-Returns wether the flag exists
+Returns whether the flag exists
 
 ```c++
 template<class T = std::string>
